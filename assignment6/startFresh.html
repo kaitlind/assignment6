@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pizza Order Form</title>
+        
+            <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        
+       <style type="text/css">
+           #otherOption, #allAtOnce, #invisibleBilling {
+               display:none;
+           }
+           
+           span {
+               color:red;
+           }
+           #totalPrice {
+               text-align: right;
+               font-size: 32px;
+           }
+          
+       </style>
+   </head>
+    <body>
+       <div class="container">
+       
+       <div class="header clearfix">
+      </div>
+
+      <div class="jumbotron">
+        <h1>Emma's Fresh Pizza</h1>
+        <p class="lead"><img src="EmmasPizza.png" alt="pizza logo">Let us serve you some grub!</p>
+      </div>
+       
+       
+       
+        <main>
+           <aside id="totalPrice"></aside>
+           <form action="#" name="billingInformation" id="billingInformation">
+              <fieldset>
+              <legend>Delivery Information</legend>
+               <label for="name">Name:</label>
+               <input type="text" id="name" placeholder="Benjamin Franklin">
+               <span>*</span><br>
+               
+               <label for="addressType">Address Type:</label>
+               <select name="addressType" id="addressType">
+                   <option value="">Please select a type of residence</option>
+                   <option>House</option>
+                   <option>Apartment</option>
+                   <option>Business</option>
+                   <option>Campus</option>
+                   <option>Hotel</option>
+                   <option>Dorm</option>
+                   <option>Other</option>
+               </select>
+               <span>*</span>
+               <div id="otherOption"><p>What kind of dwelling is it?</p><input type="text" name="otherDwelling" id="otherDwelling" /></div><br>
+               
+               <label for="addressStreet">Street:</label>
+               <input type="text" name="addressStreet" id="addressStreet" placeholder="843 Chestnut St.">
+               <span>*</span><br>
+               
+               <label for="addressNumber">Apt/Suite/Room Number:</label>
+               <input type="text" name="addressNumber" id="addressNumber">
+               <span>(optional)</span> <br>
+               
+               <label for="city">City:</label>
+               <input type="text" name="city" id="city" placeholder="Philadelphia">
+               <span>*</span><br>
+               
+               <label for ="state">State:</label>
+               <input type="text" name="state" id="state" placeholder="PA">
+               <span>*</span><br>
+               
+               <label for="zip">Zip Code:</label>
+               <input type="text" name="zip" id="zip" placeholder="19107">
+               <span>*</span><br>
+               
+               <label for="phone">Phone Number:</label>
+               <input type="text" name="phone" id="phone" placeholder="215-629-9900">
+               <span>*</span><br>
+               
+               <label for="email">Email:</label>
+               <input type="text" name="email" id="email" placeholder="historic@benfranklin.com">
+               <span>*</span> <br>
+               </fieldset>
+               
+               <fieldset id="pizzaBuilding">
+                  <legend>Pizza Choices</legend>
+                  
+                  <h4 id="crustLabel">Crust</h4><span>*</span>
+                  <label for="handTossed"><input type="radio" name="crust" id="handTossed" value="Hand Tossed">Hand Tossed</label>
+                  <label for="thinCrust"><input type="radio" name="crust" id="thinCrust" value="Thin Crust">Thin Crust</label>
+                  <label for="nyStyle"><input type="radio" name="crust" id="nyStyle" value="New York Style">New York Style</label>
+                  <label for="glutenFree"><input type="radio" name="crust" id="glutenFree" value="Gluten Free">Gluten Free</label>
+                  <span></span>
+                  
+                  <h4 id="sizeLabel">Size</h4>
+                  <span>*</span>
+                  <select name="crustSizes" id="crustSizes"></select>
+                 
+                     <div id="allAtOnce">
+                         <h4>Cheese</h4>
+                          <select name="cheeseTypes" id="cheeseTypes">
+                              <option value="0" id="lightCheese">Light</option>
+                              <option value="0" id="normalCheese" selected="selected">Normal</option>
+                              <option value="2.99" id="extraCheese">Extra (+$2.99)</option>
+                              <option value="3.99" id="doubleCheese">Double (+$3.99)</option>
+                          </select>
+
+                          <h4>Sauce</h4>
+                          <select name="sauceDropDown" id="sauceDropDown">
+                              <option value="0" id="regularSauce" selected="selected">Regular Tomato</option>
+                              <option id="heartyTomatoSauce" value="0.99">Hearty Tomato  $0.99</option>
+                              <option id="bbqSauce" value="1.99">BBQ Sauce $1.99</option>
+                          </select>
+                          
+                          <h4>Toppings</h4>
+                          <label><input type="checkbox" name="topping" id="pepperoni" value="0.99">Pepperoni</label>
+                          <label><input type="checkbox" name="topping" id="sausage" value="0.99">Sausage</label>
+                          <label><input type="checkbox" name="topping" id="ham" value="0.99">Ham</label>
+                          <label><input type="checkbox" name="topping" id="bacon" value="0.99">Bacon</label>
+                          <label><input type="checkbox" name="topping" id="salami" value="0.99">Salami</label>
+                          <label><input type="checkbox" name="topping" id="peppers" value="0.99">Peppers</label>
+                          <label><input type="checkbox" name="topping" id="olives" value="0.99">Olives</label>
+                          <label><input type="checkbox" name="topping" id="jalapenos" value="0.99">Jalapenos</label>
+                          <label><input type="checkbox" name="topping" id="mushrooms" value="0.99">Mushrooms</label>
+                          <label><input type="checkbox" name="topping" id="pineapple" value="0.99">Pineapple</label>
+                          <label><input type="checkbox" name="topping" id="onion" value="0.99">Onion</label>
+                   </div>
+               </fieldset>
+               
+               <input type="button" id="inputMyInfo" value="Finished Building Pizza"><br>
+               
+               <div id="invisibleBilling">
+                  <fieldset id="billingFieldset">
+              <legend>Billing Information</legend>
+              
+              <label><input type="checkbox" id="sameAsDelivery">Same as Delivery Information</label><br/>
+              
+               <label for="billingName">Name:</label>
+               <input type="text" name="billingName" id="billingName" placeholder="Benjamin Franklin" />
+               <span>*</span><br>
+               
+               <label for="billingAdressStreet">Street:</label>
+               <input type="text" name="billingAddressStreet" id="billingAddressStreet" placeholder="843 Chestnut St.">
+               <span>*</span><br>
+               
+               <label for="billingAddressNumber">Apt/Suite/Room Number:</label>
+               <input type="text" name="billingAddressNumber" id="billingAddressNumber">
+               <span>(optional)</span><br>
+               
+               <label for="city">City:</label>
+               <input type="text" name="billingCity" id="billingCity" placeholder="Philadelphia">
+               <span>*</span><br>
+               
+               <label for ="state">State:</label>
+               <input type="text" name="billingState" id="billingState" placeholder="PA">
+               <span>*</span><br>
+               
+               <label for="zip">Zip Code:</label>
+               <input type="text" name="billingZip" id="billingZip" placeholder="19107">
+               <span>*</span><br>
+               
+               
+               <label for="cc">Credit Card Number:</label>
+               <input type="text" id="ccNum" name="cc">
+               <span>*</span><br>
+               
+               <label for="CVC">CVC Code:</label>
+               <input type="text" id="cvc" name ="cvc">
+               <span>*</span><br>
+               
+               <label for="exp">Expiration Date:</label><br>
+               <label id="monthLabel">Month:</label><span>*</span>
+               <select id="monthExp">
+                   <option value="0">Jan</option>
+                   <option value="1">Feb</option>
+                   <option value="2">Mar</option>
+                   <option value="3">Apr</option>
+                   <option value="4">May</option>
+                   <option value="5">Jun</option>
+                   <option value="6">Jul</option>
+                   <option value="7">Aug</option>
+                   <option value="8">Sept</option>
+                   <option value="9">Oct</option>
+                   <option value="10">Nov</option>
+                   <option value="11">Dec</option>
+               </select><br>
+               <label id="yearLabel">Year:</label><span>*</span>
+               <select id="yearExp">
+                   <option value="2015">2015</option>
+                   <option value="2016">2016</option>
+                   <option value="2017">2017</option>
+                   <option value="2018">2018</option>
+                   <option value="2019">2019</option>
+                   <option value="2020">2020</option>
+                   <option value="2021">2021</option>
+               </select>
+               
+               
+               </fieldset>
+               
+               <input type="button" id="submitAll" value="Submit Your Order">
+               
+               </div>
+           </form>
+           
+           
+            
+        </main>
+        
+        <footer><a href="http://www.freepik.com/free-photos-vectors/logo">Logo vector designed by Freepik</a></footer>
+        </div><!-- end container -->
+        
+        <script src="freshScript.js"></script>
+    </body>
+</html>
